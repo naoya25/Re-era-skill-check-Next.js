@@ -33,8 +33,7 @@ const TodoShowPage = ({ params }: { params: { todoId: number } }) => {
 
   const isLogin = useContext(isLoginContext);
   const [userInfo, setUserInfo] = useContext(userInfoContext);
-  if (!isLogin) return <LoginPrompt />;
-
+  
   useEffect(() => {
     const fetchUserTodos = async () => {
       const todoData = await getTodo(params.todoId);
@@ -43,9 +42,10 @@ const TodoShowPage = ({ params }: { params: { todoId: number } }) => {
       setValue("completed", todoData.completed);
       setLoading(false);
     };
-
+    
     fetchUserTodos();
   }, [params.todoId, setValue]);
+  if (!isLogin) return <LoginPrompt />;
 
   const onSubmit: SubmitHandler<{ todo: string; completed: boolean }> = async (
     data
