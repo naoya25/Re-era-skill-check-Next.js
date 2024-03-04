@@ -11,6 +11,7 @@ import {
   faSquareXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import domtoimage from "dom-to-image";
+import EditUser from "@/components/features/user/EditUser";
 
 const UserShowPage = () => {
   const isLogin = useContext(isLoginContext);
@@ -110,7 +111,7 @@ const UserShowPage = () => {
       </div>
       {isPop && (
         <p className="text-center">
-          <span className="text-red-500">※編集ページは作成していません</span>
+          <EditUser />
         </p>
       )}
     </div>
