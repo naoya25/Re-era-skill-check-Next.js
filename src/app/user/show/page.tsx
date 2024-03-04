@@ -61,7 +61,7 @@ const UserShowPage = () => {
           <label className="block text-gray-700 text-sm font-bold mb-2">
             Token:
           </label>
-          <p className="text-gray-700 text-base">{userInfo.token}</p>
+          <p className="text-gray-700 text-base break-words">{userInfo.token}</p>
         </div>
       </div>
     </div>
