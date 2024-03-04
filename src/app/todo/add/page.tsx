@@ -12,7 +12,7 @@ const AddTodoPage = () => {
   const [userInfo, setUserInfo] = useContext(userInfoContext);
   if (!isLogin) return <LoginPrompt />;
   const router = useRouter();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const {
     register,
     handleSubmit,

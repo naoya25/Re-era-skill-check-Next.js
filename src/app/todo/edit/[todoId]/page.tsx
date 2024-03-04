@@ -13,7 +13,7 @@ const TodoShowPage = ({ params }: { params: { todoId: number } }) => {
   const isLogin = useContext(isLoginContext);
   const [userInfo, setUserInfo] = useContext(userInfoContext);
   if (!isLogin) return <LoginPrompt />;
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
   const {
     register,
     handleSubmit,

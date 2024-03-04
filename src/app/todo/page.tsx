@@ -14,7 +14,7 @@ const AllTodoPage = () => {
   // ログインしていないとき、ログイン案内
   if (!isLogin) return <LoginPrompt />;
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
   const [todos, setTodos] = useState<TodoType[]>([]);
 
   useEffect(() => {
