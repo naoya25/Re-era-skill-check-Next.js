@@ -23,11 +23,11 @@ const UserShowPage = () => {
     const node = document.getElementById("profile-card") as HTMLDivElement;
 
     domtoimage
-      .toPng(node)
+      .toSvg(node)
       .then((dataUrl) => {
         const link = document.createElement("a");
         link.href = dataUrl;
-        link.download = "component_image.png";
+        link.download = "profile-card.svg";
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
