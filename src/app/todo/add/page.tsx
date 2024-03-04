@@ -8,10 +8,10 @@ import React, { useContext, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 const AddTodoPage = () => {
+  const router = useRouter();
   const isLogin = useContext(isLoginContext);
   const [userInfo, setUserInfo] = useContext(userInfoContext);
   if (!isLogin) return <LoginPrompt />;
-  const router = useRouter();
   const [loading, setLoading] = useState<boolean>(false);
   const {
     register,
