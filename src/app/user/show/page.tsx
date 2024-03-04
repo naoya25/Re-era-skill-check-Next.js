@@ -2,6 +2,7 @@
 
 import LoginPrompt from "@/components/features/user/toLoginPage";
 import { isLoginContext, userInfoContext } from "@/hooks/useGetCurrentUser";
+import Image from "next/image";
 import { useContext, useEffect, useState } from "react";
 
 const UserShowPage = () => {
@@ -12,8 +13,12 @@ const UserShowPage = () => {
 
   return (
     <div className="max-w-xl mx-auto mt-8">
-      <p className="text-lg font-semibold mb-4">My Profile</p>
-
+      <div className="flex justify-between">
+        <p className="text-lg font-semibold mb-4 flex items-center">My Profile</p>
+        <p className="text-lg font-semibold mb-4">
+          <img src={userInfo.image} alt="user image" className="h-[60px] " />
+        </p>
+      </div>
       <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">
@@ -53,15 +58,11 @@ const UserShowPage = () => {
         </div>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">
-            Image:
-          </label>
-          <p className="text-gray-700 text-base">{userInfo.image}</p>
-        </div>
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">
             Token:
           </label>
-          <p className="text-gray-700 text-base break-words">{userInfo.token}</p>
+          <p className="text-gray-700 text-base break-words">
+            {userInfo.token}
+          </p>
         </div>
       </div>
     </div>
