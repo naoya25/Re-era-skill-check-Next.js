@@ -23,7 +23,7 @@ const UserShowPage = () => {
     const node = document.getElementById("profile-card") as HTMLDivElement;
 
     domtoimage
-      .toSvg(node)
+      .toPng(node)
       .then((dataUrl) => {
         const link = document.createElement("a");
         link.href = dataUrl;
