@@ -6,19 +6,7 @@ import LogoutButton from "./LogoutButton";
 import { useRouter } from "next/navigation";
 
 export default function RegisterForm() {
-  const isLogin = useContext(isLoginContext);
-  const [userInfo, setUserInfo] = useContext(userInfoContext);
   const router = useRouter();
-
-  // すでにログイン中の時
-  if (isLogin) {
-    return (
-      <div className="text-center">
-        <p>ユーザ名:{userInfo.username}でログイン中</p>
-        <LogoutButton />
-      </div>
-    );
-  }
 
   const {
     register,
@@ -36,6 +24,18 @@ export default function RegisterForm() {
       token: "",
     },
   });
+
+  const isLogin = useContext(isLoginContext);
+  const [userInfo, setUserInfo] = useContext(userInfoContext);
+  // すでにログイン中の時
+  if (isLogin) {
+    return (
+      <div className="text-center">
+        <p>ユーザ名:{userInfo.username}でログイン中</p>
+        <LogoutButton />
+      </div>
+    );
+  }
 
   const onSubmit: SubmitHandler<UserType> = async (data) => {
     try {

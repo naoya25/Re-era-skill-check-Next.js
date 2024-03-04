@@ -7,10 +7,9 @@ import { getUserTodos, toggleCompleteTodo } from "@/utils/todo";
 import { useContext, useEffect, useState } from "react";
 
 const UserTodoPage = ({ params }: { params: { userId: number } }) => {
+  const [userTodos, setUserTodos] = useState<TodoType[]>([]);
   const isLogin = useContext(isLoginContext);
   const [userInfo, setUserInfo] = useContext(userInfoContext);
-  if (!isLogin) return <LoginPrompt />;
-  const [userTodos, setUserTodos] = useState<TodoType[]>([]);
 
   useEffect(() => {
     const fetchUserTodos = async () => {
@@ -31,6 +30,7 @@ const UserTodoPage = ({ params }: { params: { userId: number } }) => {
       newTodos.find((todo) => todo.id === id)?.completed || false
     );
   };
+  if (!isLogin) return <LoginPrompt />;
 
   return (
     <div className="max-w-xl mx-auto mt-8">

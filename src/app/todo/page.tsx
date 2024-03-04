@@ -8,15 +8,12 @@ import { getAllTodos, toggleCompleteTodo } from "@/utils/todo";
 import { useContext, useEffect, useState } from "react";
 
 const AllTodoPage = () => {
-  const isLogin = useContext(isLoginContext);
-  const [userInfo, setUserInfo] = useContext(userInfoContext);
-
-  // ログインしていないとき、ログイン案内
-  if (!isLogin) return <LoginPrompt />;
-
   const [loading, setLoading] = useState<boolean>(true);
   const [todos, setTodos] = useState<TodoType[]>([]);
 
+  const isLogin = useContext(isLoginContext);
+  const [userInfo, setUserInfo] = useContext(userInfoContext);
+  if (!isLogin) return <LoginPrompt />;
   useEffect(() => {
     const fetchTodos = async () => {
       setLoading(true);

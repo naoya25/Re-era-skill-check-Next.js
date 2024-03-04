@@ -10,9 +10,7 @@ import { useContext, useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 const TodoShowPage = ({ params }: { params: { todoId: number } }) => {
-  const isLogin = useContext(isLoginContext);
-  const [userInfo, setUserInfo] = useContext(userInfoContext);
-  if (!isLogin) return <LoginPrompt />;
+  const router = useRouter();
   const [loading, setLoading] = useState<boolean>(true);
   const {
     register,
@@ -33,7 +31,9 @@ const TodoShowPage = ({ params }: { params: { todoId: number } }) => {
     userId: 0,
   });
 
-  const router = useRouter();
+  const isLogin = useContext(isLoginContext);
+  const [userInfo, setUserInfo] = useContext(userInfoContext);
+  if (!isLogin) return <LoginPrompt />;
 
   useEffect(() => {
     const fetchUserTodos = async () => {
