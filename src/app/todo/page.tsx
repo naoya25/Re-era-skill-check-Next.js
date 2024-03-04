@@ -13,7 +13,6 @@ const AllTodoPage = () => {
 
   const isLogin = useContext(isLoginContext);
   const [userInfo, setUserInfo] = useContext(userInfoContext);
-  if (!isLogin) return <LoginPrompt />;
   useEffect(() => {
     const fetchTodos = async () => {
       setLoading(true);
@@ -24,6 +23,7 @@ const AllTodoPage = () => {
 
     fetchTodos();
   }, []);
+  if (!isLogin) return <LoginPrompt />;
 
   const handleToggleComplete = async (id: number) => {
     const newTodos = todos.map((todo) =>
