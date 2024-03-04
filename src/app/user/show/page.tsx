@@ -27,7 +27,7 @@ const UserShowPage = () => {
       .then((dataUrl) => {
         const link = document.createElement("a");
         link.href = dataUrl;
-        link.download = "profile-card.svg";
+        link.download = "profile-card.png";
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
