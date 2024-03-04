@@ -24,14 +24,18 @@
 
 ## 要件 (ページごと)
 
-- ユーザー IDを指定するページ          : 完了 http://localhost:3000/user/register
-- Todo一覧ページ                         : 完了 http://localhost:3000/todo
+- ユーザー ID を指定するページ : 完了 http://localhost:3000/user/register
+- Todo 一覧ページ : 完了 http://localhost:3000/todo
 - 指定されたユーザー ID の Todo を取得 : 完了 http://localhost:3000/user/[userId]
-- Todo 完了、完了の取り消し              : 完了 http://localhost:3000/todo
-- Todo 削除                             : 完了 http://localhost:3000/todo/edit/[todoId]
-- Todo 追加                             : 完了 http://localhost:3000/todo/add
+- Todo 完了、完了の取り消し : 完了 http://localhost:3000/todo
+- Todo 削除 : 完了 http://localhost:3000/todo/edit/[todoId]
+- Todo 追加 : 完了 http://localhost:3000/todo/add
 
 ## Getting Started
+
+vercel deploy
+
+> https://re-era-skill-check-next-js.vercel.app/
 
 ```bash
 npm run dev
