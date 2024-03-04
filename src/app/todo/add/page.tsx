@@ -9,9 +9,6 @@ import { SubmitHandler, useForm } from "react-hook-form";
 
 const AddTodoPage = () => {
   const router = useRouter();
-  const isLogin = useContext(isLoginContext);
-  const [userInfo, setUserInfo] = useContext(userInfoContext);
-  if (!isLogin) return <LoginPrompt />;
   const [loading, setLoading] = useState<boolean>(false);
   const {
     register,
@@ -22,6 +19,9 @@ const AddTodoPage = () => {
       todoText: "",
     },
   });
+  const isLogin = useContext(isLoginContext);
+  const [userInfo, setUserInfo] = useContext(userInfoContext);
+  if (!isLogin) return <LoginPrompt />;
 
   const onSubmit: SubmitHandler<{ todoText: string }> = async (data) => {
     try {
